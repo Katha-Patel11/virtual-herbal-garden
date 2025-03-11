@@ -1,0 +1,139 @@
+[
+    {
+        "name": "Neem",
+        "scientific_name": "Azadirachta indica",
+        "diseases_treated": [
+            "Fungal infection"
+        ],
+        "usage_instructions": "Apply neem oil or crushed leaves directly to the affected area.",
+        "duration": "1-2 weeks",
+        "side_effects": [
+            "Mild skin irritation"
+        ],
+        "parts_used": [
+            "Leaves",
+            "Oil"
+        ],
+        "region_found": [
+            "India",
+            "Africa",
+            "Southeast Asia"
+        ]
+    },
+    {
+        "name": "Peppermint",
+        "scientific_name": "Mentha piperita",
+        "diseases_treated": [
+            "Allergy"
+        ],
+        "usage_instructions": "Drink peppermint tea twice daily or inhale peppermint oil steam.",
+        "duration": "1 week",
+        "side_effects": [
+            "Mild digestive discomfort"
+        ],
+        "parts_used": [
+            "Leaves"
+        ],
+        "region_found": [
+            "Europe",
+            "North America"
+        ]
+    },
+    {
+        "name": "Licorice Root",
+        "scientific_name": "Glycyrrhiza glabra",
+        "diseases_treated": [
+            "GERD"
+        ],
+        "usage_instructions": "Chew licorice root or drink licorice tea before meals.",
+        "duration": "2-4 weeks",
+        "side_effects": [
+            "High blood pressure if consumed excessively"
+        ],
+        "parts_used": [
+            "Root"
+        ],
+        "region_found": [
+            "Asia",
+            "Europe"
+        ]
+    },
+    {
+        "name": "Bitter Melon",
+        "scientific_name": "Momordica charantia",
+        "diseases_treated": [
+            "Diabetes"
+        ],
+        "usage_instructions": "Drink bitter melon juice daily on an empty stomach.",
+        "duration": "Long-term, as needed",
+        "side_effects": [
+            "Low blood sugar if taken excessively"
+        ],
+        "parts_used": [
+            "Fruit"
+        ],
+        "region_found": [
+            "India",
+            "China",
+            "Tropical regions"
+        ]
+    },
+    {
+        "name": "Garlic",
+        "scientific_name": "Allium sativum",
+        "diseases_treated": [
+            "Hypertension"
+        ],
+        "usage_instructions": "Eat 1-2 raw garlic cloves daily or take in capsule form.",
+        "duration": "Long-term use",
+        "side_effects": [
+            "Mild digestive issues",
+            "Bad breath"
+        ],
+        "parts_used": [
+            "Bulb"
+        ],
+        "region_found": [
+            "Worldwide"
+        ]
+    },
+    {
+        "name": "Feverfew",
+        "scientific_name": "Tanacetum parthenium",
+        "diseases_treated": [
+            "Migraine"
+        ],
+        "usage_instructions": "Chew fresh leaves or drink as tea twice daily.",
+        "duration": "1-2 months",
+        "side_effects": [
+            "Mouth ulcers",
+            "Digestive issues"
+        ],
+        "parts_used": [
+            "Leaves"
+        ],
+        "region_found": [
+            "Europe",
+            "North America"
+        ]
+    },
+    {
+        "name": "Amla",
+        "scientific_name": "Phyllanthus emblica",
+        "diseases_treated": [
+            "Jaundice"
+        ],
+        "usage_instructions": "Drink fresh amla juice daily in the morning.",
+        "duration": "2-3 weeks",
+        "side_effects": [
+            "Mild acidity in excess"
+        ],
+        "parts_used": [
+            "Fruit"
+        ],
+        "region_found": [
+            "India",
+            "South Asia"
+        ]
+    }
+]
