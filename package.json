@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "concurrently \"npx nodemon\" \"cd frontend && npm run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

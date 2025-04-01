@@ -11,20 +11,44 @@ const findCure = async (req, res) => {
       return res.status(400).json({ message: "Symptoms are required" });
     }
 
-    const disease = await Disease.findOne({
-      symptoms: { $all: symptoms.map((s) => new RegExp(s, "i")) },
+    const diseases = await Disease.find({
+      symptoms: { $in: symptoms.map((s) => new RegExp(s, "i")) },
     });
 
-    if (!disease) {
+    if (!diseases) {
+      return res
+        .status(404)
+        .json({ message: "No disease found for the given symptoms" });
+    }
+    /* console.log(diseases); */
+    let bestMatch = null;
+    let maxMatches = 0;
+
+    diseases.forEach((disease) => {
+      const matchedSymptoms = disease.symptoms.filter((sym) => {
+        return symptoms.includes(sym);
+      });
+
+      if (matchedSymptoms.length > maxMatches) {
+        maxMatches = matchedSymptoms.length;
+        bestMatch = {
+          disease: disease.disease,
+          matchedSymptoms: matchedSymptoms,
+        };
+      }
+    });
+
+    if (!bestMatch) {
       return res
         .status(404)
         .json({ message: "No disease found for the given symptoms" });
     }
 
-    console.log("Disease Found:", disease.disease);
+    console.log("Best Match:", bestMatch.disease);
+    console.log("Matching symptoms:", bestMatch.matchedSymptoms);
 
     const herbalCure = await HerbalCure.findOne({
-      diseases_treated: { $regex: new RegExp(disease.disease, "i") },
+      diseases_treated: { $regex: new RegExp(bestMatch.disease, "i") },
     });
 
     if (!herbalCure) {
@@ -36,7 +60,7 @@ const findCure = async (req, res) => {
     console.log("Herbal Cure Found:", herbalCure.name);
 
     res.status(200).json({
-      disease: disease.disease,
+      disease: bestMatch.disease,
       cure: herbalCure.name,
       scientific_name: herbalCure.scientific_name,
       usage_instructions: herbalCure.usage_instructions,
