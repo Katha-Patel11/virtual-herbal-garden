@@ -6,12 +6,11 @@ import Dashboard from "./components/Dashboard";
 function App(){
   return(
     <>
-    <Dashboard/>
       <Router>
         <Routes>
+          <Route path="/" element={<Dashboard/>}></Route>
           <Route path="/register" element={<Register/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
-          <Route path="/dashboard" element={<Dashboard/>}></Route>
         </Routes>
       </Router>
     </>
