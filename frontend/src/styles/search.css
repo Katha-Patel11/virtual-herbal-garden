@@ -1,0 +1,798 @@
+/* HerbalRemedySearch.css */
+
+:root {
+  --primary-color: #5b7456;
+  --primary-light: #d6e4d4;
+  --primary-dark: #2c3e2e;
+  --accent-color: #8a9e66;
+  --text-color: #333;
+  --light-bg: #f9f9f7;
+  --white: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+.herbal-remedy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Lato", "Segoe UI", sans-serif;
+  color: var(--text-color);
+  background-color: var(--light-bg);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 10px 10px;
+  margin-bottom: 30px;
+  background-image: linear-gradient(#d6e4d4),
+    url("/images/herbs-background.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.hero-section h1 {
+  color: var(--primary-dark);
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Search Section Layout */
+.search-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .search-section {
+    grid-template-columns: minmax(300px, 1fr) 2fr;
+  }
+}
+
+/* Symptoms Selection */
+.symptoms-selection {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.symptoms-selection h2 {
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.selection-hint {
+  color: #666;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Categories */
+.symptoms-categories {
+  margin-bottom: 20px;
+}
+
+.category-container {
+  margin-bottom: 10px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-light);
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.category-header:hover {
+  background-color: #b9d5c9;
+}
+
+.category-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+}
+
+.arrow {
+  font-size: 12px;
+  transition: var(--transition);
+}
+
+/* Symptoms Grid */
+.symptoms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 15px;
+  background-color: #f5f8f6;
+  border-radius: 0 0 6px 6px;
+  margin-top: 2px;
+}
+
+/* Custom Checkbox Styles */
+.symptom-checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.symptom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.symptom-checkbox:hover input ~ .checkbox-custom {
+  background-color: #ccc;
+}
+
+.symptom-checkbox input:checked ~ .checkbox-custom {
+  background-color: var(--primary-color);
+}
+
+.checkbox-custom:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.symptom-checkbox input:checked ~ .checkbox-custom:after {
+  display: block;
+}
+
+.symptom-checkbox .checkbox-custom:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.search-button,
+.clear-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.search-button {
+  background-color: var(--primary-color);
+  color: white;
+  flex: 2;
+}
+
+.search-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+}
+
+.clear-button {
+  background-color: #e0e0e0;
+  color: #666;
+  flex: 1;
+}
+
+.clear-button:hover:not(:disabled) {
+  background-color: #d0d0d0;
+}
+
+.search-button:disabled,
+.clear-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Selected Symptoms Tags */
+.selected-symptoms {
+  margin-top: 20px;
+}
+
+.selected-symptoms p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.symptom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.symptom-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--primary-light);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--primary-dark);
+}
+
+.symptom-tag.highlight {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.symptom-tag.secondary {
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+.remove-tag {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* Results Section */
+.results-section {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+.results-section.active {
+  opacity: 1;
+}
+
+.results-section h2 {
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-left-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* No Results Message */
+.no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.no-results p {
+  margin-bottom: 10px;
+}
+
+/* Remedies Grid */
+.remedies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Remedy Card */
+.remedy-card {
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.remedy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.remedy-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 15px;
+  position: relative;
+}
+
+.remedy-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.7)
+  );
+}
+
+.remedy-image h3 {
+  color: white;
+  margin: 0;
+  font-size: 1.4rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.remedy-details {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.remedy-description {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.matching-symptoms p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.remedy-preparation {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-left: 4px solid var(--accent-color);
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .symptoms-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .remedies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .symptoms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+}
+
+/* Animation Keyframes - Add these to your existing CSS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== Animation additions for existing elements ===== */
+
+/* Add to .herbal-remedy-container */
+.herbal-remedy-container {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Add to .hero-section */
+.hero-section {
+  animation: fadeIn 1s ease-out, pulse 5s infinite ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add this as a new pseudo-element for the hero section */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 8s infinite linear;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Add to .hero-section h1 */
+.hero-section h1 {
+  position: relative;
+  z-index: 2;
+  animation: slideInUp 1s ease-out;
+}
+
+/* Add to .hero-section p */
+.hero-section p {
+  position: relative;
+  z-index: 2;
+  animation: slideInUp 1.2s ease-out;
+}
+
+/* Add to .search-section */
+.search-section {
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Add to .symptoms-selection */
+.symptoms-selection:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Add to .symptoms-selection h2 */
+.symptoms-selection h2 {
+  animation: fadeSlideIn 0.6s ease-out;
+}
+
+/* Add to .selection-hint */
+.selection-hint {
+  animation: fadeSlideIn 0.8s ease-out;
+}
+
+/* Add to .category-container */
+.category-container {
+  animation: fadeSlideIn 1s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Staggered delays for categories */
+.category-container:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.category-container:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.category-container:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.category-container:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.category-container:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.category-container:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.category-container:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.category-container:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+/* Add to .category-header */
+.category-header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add this as a new pseudo-element for the category header */
+.category-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+/* Add to .category-header:hover */
+.category-header:hover {
+  transform: translateY(-2px);
+}
+
+.category-header:hover::after {
+  left: 100%;
+}
+
+/* Add to .symptom-tag */
+.symptom-tag {
+  animation: fadeIn 0.5s ease-out;
+  transition: all 0.3s ease;
+}
+
+.symptom-tag:hover {
+  transform: translateY(-2px);
+}
+
+/* Add to .remedy-card */
+.remedy-card {
+  animation: fadeIn 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Staggered entrance for remedy cards */
+.remedy-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.remedy-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.remedy-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.remedy-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.remedy-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Add to .remedy-card:hover */
+.remedy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhance the .remedy-image with this overlay animation */
+.remedy-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.remedy-card:hover .remedy-image::after {
+  opacity: 1;
+}
+
+/* Add for .search-button */
+.search-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.search-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.search-button:hover::after {
+  left: 100%;
+}
+
+/* Enhance the loading spinner */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Add gentle floating animation to selected symptom tags */
+.selected-symptoms .symptom-tag {
+  animation: fadeIn 0.5s ease-out, float 3s infinite ease-in-out;
+  animation-delay: 0s, 0.5s;
+}
+
+/* Different timing for different tags to create a wave effect */
+.selected-symptoms .symptom-tag:nth-child(2n) {
+  animation-delay: 0s, 0.7s;
+}
+
+.selected-symptoms .symptom-tag:nth-child(3n) {
+  animation-delay: 0s, 0.9s;
+}
+
+/* Add bounce animation to the clear button */
+.clear-button:hover {
+  animation: bounce 0.5s ease;
+}
+
+/* Add a transition effect when results appear */
+.results-section {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(10px);
+}
+
+.results-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add a subtle fade-in effect for the disclaimer */
+.disclaimer {
+  animation: fadeIn 1.5s ease-out;
+}

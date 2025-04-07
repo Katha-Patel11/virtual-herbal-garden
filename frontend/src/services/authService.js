@@ -21,3 +21,14 @@ export const loginUser = async (userData) => {
   });
   return response.json();
 };
+
+export const searchCure = async (symptoms) => {
+  const response = await fetch(`${API_URL}/find-cure`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ symptoms }),
+  });
+  return response.json();
+};

@@ -98,6 +98,9 @@ const Register = () => {
         <div className="login-link">
           Already have an account? <a href="/login">Log in</a>
         </div>
+        <div className="login-link">
+           <a href="/">Back to Home</a>
+        </div>
       </div>
     </div>
   );
